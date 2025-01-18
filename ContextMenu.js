@@ -82,13 +82,13 @@ class ContextMenu {
     const contextMenu = this.renderMenu();
     document.addEventListener("click", () => this.closeMenu(contextMenu));
     window.addEventListener("blur", () => this.closeMenu(contextMenu));
-    // document.addEventListener("contextmenu", (e) => {
-    //   this.targetNode.forEach((target) => {
-    //     if (!e.target.contains(target)) {
-    //       contextMenu.remove();
-    //     }
-    //   });
-    // });
+    document.addEventListener("contextmenu", (e) => {
+      this.targetNode.forEach((target) => {
+        if (!e.target.contains(target)) {
+          contextMenu.remove();
+        }
+      });
+    });
 
     this.targetNode.forEach((target) => {
       target.addEventListener("contextmenu", (e) => {
